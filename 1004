@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] name = new String[n];
+        String[] id = new String[n];
+        int[] score = new int[n];
+        int basic = 0;
+        while (basic < n) {
+            name[basic] = sc.next();
+            id[basic] = sc.next();
+            score[basic] = sc.nextInt();
+            basic ++;
+        }
+        basic = 0;
+        int max = 0;
+        int min = 100;
+        while (basic < n) {
+            max = Math.max(max,score[basic]);
+            min = Math.min(min,score[basic]);
+            basic ++;
+        }
+        basic = 0;
+        while (basic < n) {
+            if (max == score[basic]) {
+                System.out.println(name[basic] + " " + id[basic]);
+                break;
+            }
+            basic ++;
+        }        
+        basic = 0;
+        while (basic < n) {
+            if (min == score[basic]) {
+                System.out.println(name[basic] + " " + id[basic]);
+                break;
+            }
+            basic ++;
+        }
+        sc.close();
+    }
+}
