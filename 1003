@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int basic = 0;
+	    String[] s = new String[n];
+	    while (basic < n) {
+	    	s[basic] = sc.next();
+	        basic ++;
+	    }
+	    basic = 0;
+        int in = 0;
+        int[] countA = new int[3];
+        int countP = 0;
+        int countT = 0; 
+	    while (basic < n) {
+	    	if (s[basic].charAt(0) == 'A' || s[basic].charAt(0) == 'P') {
+		    	while (in < s[basic].length()) {
+		    		if (s[basic].charAt(in) == 'A') {
+		    			if (countP == 0) {
+		    				countA[0] ++;
+		    				in ++;
+		    			}else if (countP == 1 && countT == 0) {
+		    				countA[1] ++;
+		    				in ++;
+		    			}else {
+		    				countA[2] ++;
+		    				in ++;
+		    			}
+		    		}else if (s[basic].charAt(in) == 'P') {
+		    			countP ++;
+		    			in ++;
+		    		}else if (s[basic].charAt(in) == 'T') {
+		    			countT ++;
+		    			in ++;
+		    		}else {
+		    			in = 0;
+		    			break;
+		    		}
+	            }
+	    		if ((countA[0] * countA[1] == countA[2] || (countA[0] == 0 && countA[2] == 0)) && countP == 1 && countT == 1 && countA[1] > 0) {
+	    			System.out.println("YES");
+	    			
+	    		}else {
+	    			System.out.println("NO");
+	    		}
+	    	}else {
+	    		System.out.println("NO");
+	    	}
+	    	in = 0;
+	    	countA[0] = 0;
+	    	countA[1] = 0;
+	    	countA[2] = 0;
+	    	countP = 0;
+	    	countT = 0;
+	    	basic ++;
+	    }
+	    sc.close();
+	}
+}
