@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arrA = new int[n];
+        int[] arrB = new int[n];
+        int[] arrC = new int[n];
+        for (int i = 0;i < n;i ++) {
+            arrA[i] = sc.nextInt();
+            arrB[i] = sc.nextInt();
+            arrC[i] = sc.nextInt();
+        }
+        for (int i = 0;i < n;i ++) {
+            double ab = (double)arrA[i] + arrB[i];
+            double c = arrC[i];
+            System.out.print("Case #" + (i + 1) + ": ");
+            if (ab > c) {
+                System.out.println("true");
+            }else {
+                System.out.println("false");
+            }
+        }
+        sc.close();
+    }
+}
