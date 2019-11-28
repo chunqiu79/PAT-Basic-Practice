@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Main {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BigInteger n = sc.nextBigInteger();
+        String s1 = String.valueOf(n);
+        StringBuilder sb = new StringBuilder();
+        int left = 0;
+        int sum = 0;
+        while (left < s1.length()) {
+        	sum += Integer.parseInt(String.valueOf(s1.charAt(left)));
+            left ++;
+        }
+        String s2 = String.valueOf(sum);
+        left = 0;
+        while (left < s2.length()) {
+            if (s2.charAt(left) == '0') {
+                sb.append("ling");
+            }else if (s2.charAt(left) == '1') {
+                sb.append("yi");
+            }else if (s2.charAt(left) == '2') {
+                sb.append("er");
+            }else if (s2.charAt(left) == '3') {
+                sb.append("san");
+            }else if (s2.charAt(left) == '4') {
+                sb.append("si");
+            }else if (s2.charAt(left) == '5') {
+                sb.append("wu");
+            }else if (s2.charAt(left) == '6') {
+                sb.append("liu");
+            }else if (s2.charAt(left) == '7') {
+                sb.append("qi");
+            }else if (s2.charAt(left) == '8') {
+                sb.append("ba");
+            }else if (s2.charAt(left) == '9') {
+                sb.append("jiu");
+            }
+            if (left != s2.length() - 1) {
+                sb.append(" ");
+            }
+            left ++;
+        }
+        System.out.println(sb.toString());
+        sc.close();
+    }
+}
