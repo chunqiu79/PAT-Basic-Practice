@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = new String[4];
+        for (int i = 0;i < 4;i ++) {
+            s[i] = sc.nextLine();
+        }
+        int min1 = Math.min(s[0].length(),s[1].length());
+        int count = min1;
+        for (int i = 0;i < min1;i ++) {
+            if ('A' <= s[0].charAt(i) && s[0].charAt(i) <= 'G' && s[0].charAt(i) == s[1].charAt(i) && count == min1) {
+            	count = i;
+                switch(s[0].charAt(i)) {
+                    case 'A':
+                        System.out.print("MON ");
+                        break;
+                    case 'B':
+                        System.out.print("TUE ");
+                        break;
+                    case 'C':
+                        System.out.print("WED ");
+                        break;
+                    case 'D':
+                        System.out.print("THU ");
+                        break;
+                    case 'E':
+                        System.out.print("FRI ");
+                        break;
+                    case 'F':
+                        System.out.print("SAT ");
+                        break;
+                    case 'G':
+                        System.out.print("SUN ");
+                        break;
+                    default:
+                        System.out.print("ERROR ");
+                        break;
+                }
+            }
+            if ('0' <= s[0].charAt(i) && s[0].charAt(i) <= '9' && s[0].charAt(i) == s[1].charAt(i) && i > count) {
+            	System.out.print("0");
+                System.out.print(s[0].charAt(i) - 48);
+                break;
+            }
+            if ('A' <= s[0].charAt(i) && s[0].charAt(i) <= 'N' && s[0].charAt(i) == s[1].charAt(i) && i > count) {
+                System.out.print(s[0].charAt(i) - 55);
+                break;
+            }
+        }
+        int min2 = Math.min(s[2].length(),s[3].length());
+        for (int i = 0;i < min2;i ++) {
+        	if (('a' <= s[2].charAt(i) && s[2].charAt(i) <= 'z') || ('A' <= s[2].charAt(i) && s[2].charAt(i) <= 'Z')) {
+                if (s[2].charAt(i) == s[3].charAt(i)) {
+                    System.out.print(":");
+                    if (i < 10) {
+                        System.out.print(0);
+                    }
+                    System.out.print(i);
+                    break;
+                }
+            }
+        }
+        sc.close();
+    }
+}
