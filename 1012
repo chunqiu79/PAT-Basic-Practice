@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0;i < n;i ++) {
+            arr[i] = sc.nextInt();
+        }
+        int A1 = 0;
+        int count1 = 0;//很重要
+        int sum1 = 0;
+        int A2 = 0;
+        int count2 = 0;//很重要
+        int sum2 = 0;
+        int A3 = 0;
+        int count3 = 0;
+        double A4 = 0;
+        int count4 = 0;
+        int sum4 = 0;
+        int A5 = 0;
+        int max5 = 0;
+        for (int i = 0;i < n;i ++) {
+            if (arr[i] % 10 == 0) {
+                sum1 += arr[i];
+                count1 ++;
+            }
+            if (arr[i] % 5 == 1) {
+                if (count2 % 2 == 0) {
+                    sum2 += arr[i];
+                }else {
+                    sum2 -= arr[i];
+                }
+                count2 ++;
+            }
+            if (arr[i] % 5 == 2) {
+                count3 ++;
+            }
+            if (arr[i] % 5 == 3) {
+                sum4 += arr[i];
+                count4 ++;
+            }
+            if (arr[i] % 5 == 4) {
+                max5 = Math.max(max5,arr[i]);
+            }
+        }
+        A1 = sum1;
+        A2 = sum2;
+        A3 = count3;
+        A4 = 1.0 * sum4 / count4;
+        A5 = max5;
+        if (count1 == 0) {
+        	System.out.print("N ");
+        }else {
+        	System.out.print(A1 + " ");
+        }
+        if (count2 == 0) {
+        	System.out.print("N ");
+        }else {
+        	System.out.print(A2 + " ");        	
+        }
+        if (count3 == 0) {
+        	System.out.print("N ");
+        }else {
+        	System.out.print(A3 + " ");        	        	
+        }
+        if (count4 == 0) {
+        	System.out.print("N ");
+        }else {
+        	System.out.printf("%,.1f ",A4);        	
+        }
+        if (max5 == 0) {
+        	System.out.print("N");
+        }else {
+        	System.out.print(A5);        	
+        }
+        sc.close();
+    }
+}
