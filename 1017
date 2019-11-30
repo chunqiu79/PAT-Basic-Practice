@@ -1,0 +1,14 @@
+public static void main(String[] args) throws IOException {
+        //Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] s = br.readLine().split(" ");
+        //BigInteger a = sc.nextBigInteger();
+        //BigInteger b = sc.nextBigInteger();
+        BigInteger a = new BigInteger(s[0]);
+        BigInteger b = new BigInteger(s[1]);
+        BigInteger q = a.divide(b);
+        BigInteger r = a.subtract(b.multiply(a.divide(b)));
+        System.out.println(q + " " + r);
+        //sc.close();
+        br.close();
+    }
